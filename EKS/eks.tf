@@ -10,8 +10,7 @@ locals {
 
 
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "3.12.0"
+  source  = "git::https://github.com/terraform-aws-modules/terraform-aws-vpc.git?ref=v3.12.0"
 
   name = var.cluster_name
   cidr = var.cidr
@@ -36,8 +35,7 @@ module "vpc" {
 }
 
 module "eks" {
-  source  = "terraform-aws-modules/eks/aws"
-  version = "18.21.0"
+  source  = "git::https://github.com/terraform-aws-modules/terraform-aws-eks.git?ref=v18.21.0"
 
   cluster_name                    = var.cluster_name
   cluster_version                 = var.cluster_version
